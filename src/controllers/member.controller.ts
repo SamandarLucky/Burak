@@ -1,30 +1,31 @@
 import {T} from "../libs/types/common";
 import { Request, Response} from 'express';
 
-
+// REACT UCHUN
 const memberConroller: T  = {};
-memberConroller.goHome = (req: Request, res: Response) => {
-    try {
-    res.send('Home Page')
-    } catch(err) {
-        console.log('Error, goHome:', err)
-    }
-};
 
-memberConroller.getLogin = (req: Request, res: Response) => {
-    try {
-    res.send('Login Page')
-    } catch(err) {
-        console.log('Error, goLogin:', err)
-    }
-};
+// memberConroller.goHome = (req: Request, res: Response) => {
+//     try {
+//     res.send('Home Page')
+//     } catch(err) {
+//         console.log('Error, goHome:', err)
+//     }
+// };
 
-memberConroller.getSignup = (req: Request, res: Response) => {
-    try {
-    res.send('Signup Page')
-    } catch(err) {
-        console.log('Error, getSignup:', err)
-    }
-};
+// memberConroller.getLogin = (req: Request, res: Response) => {
+//     try {
+//     res.send('Login Page')
+//     } catch(err) {
+//         console.log('Error, goLogin:', err)
+//     }
+// };
+
+// memberConroller.getSignup = (req: Request, res: Response) => {
+//     try {
+//     res.send('Signup Page')
+//     } catch(err) {
+//         console.log('Error, getSignup:', err)
+//     }
+// };
 
 export default memberConroller;

@@ -3,6 +3,7 @@
 import express from 'express';
 import path from "path";
 import router from "./router";
+import routerAdmin from "./routerAdmin"
 /* 1 - ENTRANCE */
 const app = express();
 console.log("__dirname:", __dirname);
@@ -21,7 +22,10 @@ app.set('view engine', "ejs");
 
 
 /* 4 - ROUTERS */
-app.use('/', router);  // Middleware Design Pattern
+// BSSR: backenda fronted qurish EJS frameworkdan foydalanamiz
+app.use('/admin', routerAdmin);
 
+// SPA: REACT rest api server sifatida ishlatamiz
+app.use('/', router);
 
 export default app; // module exports 
