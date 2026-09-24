@@ -1,16 +1,34 @@
+
+
+//============================================================
+
+
+/* Project Standarts:
+    - Logging standarts
+    - Naming Standarts
+        (function, method, variable) => CAMEL Case              goHome
+        (class => PASCAL Case)                                  MemberService
+        (folder => KEBAB Case)
+        (CSS => SNAKE Case)                                     button_style
+
+    - Error handling
+
+*/
+
+
 //============================================================
                                                     // MITASK M
 
 
-function getSquareNumbers(arr: number[]) {
-    return arr.map(number => ({
-        number,
-        square: number * number
-    }));
-}
+// function getSquareNumbers(arr: number[]) {
+//     return arr.map(number => ({
+//         number,
+//         square: number * number
+//     }));
+// }
 
-console.log(getSquareNumbers([3, 2, 6]));
-console.log(getSquareNumbers([-3, -2, 0]));
+// console.log(getSquareNumbers([3, 2, 6]));
+// console.log(getSquareNumbers([-3, -2, 0]));
 
 //============================================================
                                                     //MITASK K

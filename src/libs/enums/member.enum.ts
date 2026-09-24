@@ -8,3 +8,4 @@ export enum MemberStatus {
     BCLOCK = "BCLOCK",
     DELETE = "DELETE",
 }
+

@@ -6,6 +6,7 @@ import MemberService from "../models/Member.service"
 const restaurantConroller: T  = {};
 restaurantConroller.goHome = (req: Request, res: Response) => {
     try {
+    console.log('go Home');
     res.send('Home Page')
     } catch(err) {
         console.log('Error, goHome:', err)
@@ -14,6 +15,7 @@ restaurantConroller.goHome = (req: Request, res: Response) => {
 
 restaurantConroller.getLogin = (req: Request, res: Response) => {
     try {
+    console.log('getLogin');
     res.send('Login Page')
     } catch(err) {
         console.log('Error, goLogin:', err)
@@ -22,6 +24,7 @@ restaurantConroller.getLogin = (req: Request, res: Response) => {
 
 restaurantConroller.getSignup = (req: Request, res: Response) => {
     try {
+    console.log('getSignup');
     res.send('Signup Page')
     } catch(err) {
         console.log('Error, getSignup:', err)
