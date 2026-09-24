@@ -1,8 +1,3 @@
-
-
-//============================================================
-
-
 /* Project Standarts:
     - Logging standarts
     - Naming Standarts
@@ -14,7 +9,18 @@
     - Error handling
 
 */
+//============================================================
+                                                    // MITASK M
 
+function palindromCheck(str: string): boolean {
+    const reversed: string = str.split("").reverse().join("");
+
+    return str === reversed;
+}
+
+console.log(palindromCheck("mom"));   
+console.log(palindromCheck("hello")); 
+console.log(palindromCheck("level")); 
 
 //============================================================
                                                     // MITASK M
