@@ -8,6 +8,9 @@
 
     - Error handling
 
+    Traditional API 
+    Rest API
+    GraphQL API
 */
 //============================================================
                                                     // MITASK M

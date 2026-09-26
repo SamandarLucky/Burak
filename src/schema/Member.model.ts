@@ -9,7 +9,7 @@ memberType: {
     enum: MemberType,
     default: MemberType.USER
 },
-memeberStatus: {
+memberStatus: {
     type: String,
     enum: MemberStatus,
     default: MemberStatus.ACTIVE
