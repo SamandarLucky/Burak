@@ -1,3 +1,23 @@
+//============================================================
+                                                    //MITASK O
+function calculateSumOfNumbers(arr: any[]): number {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            sum += arr[i];
+        }
+    }
+
+    return sum;
+}
+
+console.log(
+    calculateSumOfNumbers([10, "10", { son: 10 }, true, 35, 'Sam10', 1])
+);                      //num. str.   obj.      boolean  num.
+
+//============================================================
+
 /* Project Standarts:
     - Logging standarts
     - Naming Standarts
@@ -15,15 +35,15 @@
 //============================================================
                                                     // MITASK M
 
-function palindromCheck(str: string): boolean {
-    const reversed: string = str.split("").reverse().join("");
+// function palindromCheck(str: string): boolean {
+//     const reversed: string = str.split("").reverse().join("");
 
-    return str === reversed;
-}
+//     return str === reversed;
+// }
 
-console.log(palindromCheck("mom"));   
-console.log(palindromCheck("hello")); 
-console.log(palindromCheck("level")); 
+// console.log(palindromCheck("mom"));   
+// console.log(palindromCheck("hello")); 
+// console.log(palindromCheck("level")); 
 
 //============================================================
                                                     // MITASK M
