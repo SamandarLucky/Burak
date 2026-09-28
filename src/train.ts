@@ -1,20 +1,30 @@
 //============================================================
-                                                    //MITASK O
-function calculateSumOfNumbers(arr: any[]): number {
-    let sum = 0;
+                                        // MITASK P
 
-    for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] === "number") {
-            sum += arr[i];
-        }
-    }
 
-    return sum;
+function objectToArray(obj: any): any[] {
+    return Object.entries(obj);       
 }
 
-console.log(
-    calculateSumOfNumbers([10, "10", { son: 10 }, true, 35, 'Sam10', 1])
-);                      //num. str.   obj.      boolean  num.
+console.log(objectToArray({ a: 1, b: 20 }));
+
+//============================================================
+                                                    //MITASK O
+// function calculateSumOfNumbers(arr: any[]): number {
+//     let sum = 0;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (typeof arr[i] === "number") {
+//             sum += arr[i];
+//         }
+//     }
+
+//     return sum;
+// }
+
+// console.log(
+//     calculateSumOfNumbers([10, "10", { son: 10 }, true, 35, 'Sam10', 1])
+// );                      //num. str.   obj.      boolean  num.
 
 //============================================================
 
