@@ -10,30 +10,31 @@ const restaurantConroller: T  = {};
 restaurantConroller.goHome = (req: Request, res: Response) => {
     try {
     console.log('go Home');
-    res.send('Home Page')
+    res.render("home");
     // send | json | redirect | end | render
     } catch(err) {
         console.log('Error, goHome:', err)
     }
 };
 
+restaurantConroller.getSignup = (req: Request, res: Response) => {
+    try {
+    console.log('getSignup');
+    res.render("signup");
+    } catch(err) {
+        console.log('Error, getSignup:', err)
+    }
+};
+
 restaurantConroller.getLogin = (req: Request, res: Response) => {
     try {
     console.log('getLogin');
-    res.send('Login Page')
+    res.render("login");
     } catch(err) {
         console.log('Error, goLogin:', err)
     }
 };
 
-restaurantConroller.getSignup = (req: Request, res: Response) => {
-    try {
-    console.log('getSignup');
-    res.send('Signup Page')
-    } catch(err) {
-        console.log('Error, getSignup:', err)
-    }
-};
 
 restaurantConroller.processSignup = async(req: Request, res: Response) => {
     try {
