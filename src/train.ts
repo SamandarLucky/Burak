@@ -1,3 +1,17 @@
+/*
+Traditional API
+Rest API
+GraphQL API
+
+
+Traditional Fronted Development  => BSSR => EJS framework
+Modern Frontend Development => SPA => REACT 
+*/
+
+
+
+
+
 //============================================================
                                         // MITASK P
 
