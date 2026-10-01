@@ -1,3 +1,15 @@
+
+//============================================================
+                                    // MITASK Q
+function hasProperty(obj: object, property: string): boolean {
+    return obj.hasOwnProperty(property);
+}
+
+console.log(hasProperty({ name: "BMW" }, "name")); 
+console.log(hasProperty({ name: "Sam" }, "ismi"));
+
+//============================================================
+
 /*
 Traditional API
 Rest API
@@ -8,19 +20,15 @@ Traditional Fronted Development  => BSSR => EJS framework
 Modern Frontend Development => SPA => REACT 
 */
 
-
-
-
-
 //============================================================
                                         // MITASK P
 
 
-function objectToArray(obj: any): any[] {
-    return Object.entries(obj);       
-}
+// function objectToArray(obj: any): any[] {
+//     return Object.entries(obj);       
+// }
 
-console.log(objectToArray({ a: 1, b: 20 }));
+// console.log(objectToArray({ a: 1, b: 20 }));
 
 //============================================================
                                                     //MITASK O
