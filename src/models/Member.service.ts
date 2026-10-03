@@ -69,7 +69,7 @@ class MemberService {
             }
         }
 
-    public async processLogin(input: LoginInput) {
+    public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel.findOne(
             {memberNick: input.memberNick}, 
             {memberNick: 1, memberPassword: 1})
@@ -87,7 +87,12 @@ class MemberService {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
 
-        return await this.memberModel.findById(member._id).exec();
+        const result = await this.memberModel.findById(member._id).exec();
+        if (!result) {
+         throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        }
+
+        return result.toObject() as Member;
         
      }
 

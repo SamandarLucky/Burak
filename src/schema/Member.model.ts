@@ -1,5 +1,6 @@
 import mongoose, {Schema} from "mongoose";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
+import { Member } from "../libs/types/member";
 
 
 // Schema first & Code first
