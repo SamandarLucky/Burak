@@ -14,6 +14,8 @@ routerAdmin
 .get('/signup', restaurantConroller.getSignup)
 .post("/signup", restaurantConroller.processSignup);
 
+routerAdmin.get('/check-me', restaurantConroller.checkAuthSession);
+
 /* Product */
 
 
