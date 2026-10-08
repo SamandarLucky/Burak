@@ -1,8 +1,17 @@
 //============================================================
                                     // MITASK S
 
+function missingNumber(arr: number[]): number {
+    for (let i = 0; i <= arr.length; i++) {
+        if (!arr.includes(i)) {
+            return i;
+        }
+    }
+    return -1;
+}
 
-
+console.log(missingNumber([3, 0, 2, 1]));   // bu array ichidagi birinchi missing sonni return qiladi 
+console.log(missingNumber([3, 0, 1])); 
 
 //============================================================
 /* VALIDATIONS
