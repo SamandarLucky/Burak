@@ -1,14 +1,29 @@
 //============================================================
+                                    // MITASK S
+
+
+
+
+//============================================================
+/* VALIDATIONS
+
+Frontend validation: Pipe validation
+Backend validation
+Database validation
+
+
+*/
+//============================================================
                                     // MITASK R
 
-function calculate(str: string): number {
-    return eval(str);
-}
+// function calculate(str: string): number {
+//     return eval(str);
+// }
 
-console.log(calculate("1 + 3")); 
-console.log(calculate("10 - 3"));
-console.log(calculate("5 * 4")); 
-console.log(calculate("20 / 5")); 
+// console.log(calculate("1 + 3")); 
+// console.log(calculate("10 - 3"));
+// console.log(calculate("5 * 4")); 
+// console.log(calculate("20 / 5")); 
 
 
 //============================================================
