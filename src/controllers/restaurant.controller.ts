@@ -1,5 +1,5 @@
 import {T} from "../libs/types/common";
-import { Request, Response} from 'express';
+import { NextFunction, Request, Response} from 'express';
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
@@ -109,6 +109,14 @@ restaurantConroller.checkAuthSession = async (req: AdminRequest, res: Response) 
     }
 };
 
-
+restaurantConroller.verifyRestaurant = (req: AdminRequest, res: Response, next: NextFunction) => {
+        if(req.session?.member?.memberType === MemberType.RESTAURANT) {
+            req.member = req.session.member;
+            next();
+        } else {
+            const message = Message.NOT_AUTHENTICATRD;
+    res.send(`<script> alert("${Message.NOT_AUTHENTICATRD}"); window.location.replace('/admin/login'); </script>`);
+        };
+};
 
 export default restaurantConroller;
