@@ -26,7 +26,7 @@ routerAdmin.get('/product/all',
     productController.getAllProducts);
 
 routerAdmin.post("/product/create", 
-    restaurantConroller.verifyRestaurant,
+    restaurantConroller.verifyRestaurant,           // Midlleware
     // uploadProductImage.single('productImage'),
     makeUploader("products").array("productImages", 5),
     productController.createNewProduct);

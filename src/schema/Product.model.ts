@@ -25,7 +25,7 @@ const productSchema = new Schema (
             required: true,
         },
 
-        productLeftCount: {
+        productCount: {
             type: Number,
             required: true,
         },
@@ -37,14 +37,14 @@ const productSchema = new Schema (
         },
 
         productVolume: {
-            type: String,
+            type: Number,
             enum: ProductVolume,
             default: ProductVolume.ONE,
         },
 
         productDesc: {
             type: String,
-            required: true,
+            
         },
 
         productImages: {
@@ -52,7 +52,7 @@ const productSchema = new Schema (
             default: []
         },
 
-        productView: {
+        productViews: {
             type: Number,
             default: 0,
         }
