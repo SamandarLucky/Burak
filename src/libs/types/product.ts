@@ -29,3 +29,17 @@ export interface ProductInput {
     
 }
 
+export interface ProductUpdateInput {
+    _id: Types.ObjectId;
+    productStatus?: ProductStatus;
+    productCollection?: ProductCollection;
+    productName?: string;
+    productPrice?: number;
+    productCount?: number;
+    productSize?: ProductSize;
+    productVolume?: number;
+    productDesc?: string;
+    productImages?: string[];
+    productViews?: number;
+    
+}
