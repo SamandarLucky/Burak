@@ -21,6 +21,12 @@ class ProductService {
 
 
 /* SSR */
+public async getAllProducts(): Promise<Product[]> {
+    const result = await this.productModel.find().exec();
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result.map((product) => product.toObject()) as Product[];
+}
 
 public async createNewProduct(input: ProductInput) {
     try {
@@ -34,11 +40,10 @@ public async createNewProduct(input: ProductInput) {
 
 public async updateChosenProduct(id: string, input: ProductUpdateInput): Promise<Product> {
     // string => ObjectId
+
     id = shapeIntoMongooseObjectId(id);
     const result = await this.productModel.findOneAndUpdate({_id: id}, input, {new: true}).exec();
     if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-
-    console.log("result:", result);
     return result.toObject();
 }
 

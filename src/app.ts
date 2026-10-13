@@ -38,7 +38,7 @@ app.use(
 
 app.use(function(req, res, next){
     const sessionInstance = req.session as T;
-    res.locals.memeber = sessionInstance.member;  //locals brauwser variables
+    res.locals.member = sessionInstance.member;  //locals brauwser variables
     next();
 })
 
