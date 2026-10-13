@@ -9,7 +9,7 @@
 
     console.log(mergeSortedArrays([2, 5, 8], [4, 6]));
     console.log(mergeSortedArrays([2, 2, 4], [4, 6]));
-
+ 
 //============================================================
                                     // MITASK S
 
