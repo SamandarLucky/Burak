@@ -1,17 +1,29 @@
 //============================================================
-                                    // MITASK S
+                                    //MITASK T
 
-function missingNumber(arr: number[]): number {
-    for (let i = 0; i <= arr.length; i++) {
-        if (!arr.includes(i)) {
-            return i;
-        }
-    }
-    return -1;
+
+
+    function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
-console.log(missingNumber([3, 0, 2, 1]));   // bu array ichidagi birinchi missing sonni return qiladi 
-console.log(missingNumber([3, 0, 1])); 
+    console.log(mergeSortedArrays([2, 5, 8], [4, 6]));
+    console.log(mergeSortedArrays([2, 2, 4], [4, 6]));
+
+//============================================================
+                                    // MITASK S
+
+// function missingNumber(arr: number[]): number {
+//     for (let i = 0; i <= arr.length; i++) {
+//         if (!arr.includes(i)) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+// console.log(missingNumber([3, 0, 2, 1]));   // bu array ichidagi birinchi missing sonni return qiladi 
+// console.log(missingNumber([3, 0, 1])); 
 
 //============================================================
 /* VALIDATIONS
