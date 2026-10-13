@@ -38,8 +38,10 @@ routerAdmin.post("/product/:id",                        //param
 /* User */
 routerAdmin.get("/user/all", restaurantConroller.verifyRestaurant,
     restaurantConroller.getUsers
-)
-
+);
+routerAdmin.post("/user/edit", restaurantConroller.verifyRestaurant,
+    restaurantConroller.updateChosenUser
+);
 
 
 
