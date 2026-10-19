@@ -1,14 +1,31 @@
 //============================================================
+                                        // MITASK V
+function countChars(str: string): { [key: string]: number } {
+    const result: { [key: string]: number } = {};
+
+    for (let char of str) {
+        if (result[char]) {
+            result[char]++;
+        } else {
+            result[char] = 1;
+        }
+    }
+
+    return result;
+}
+
+console.log(countChars("hello"));
+console.log(countChars("Samandar"));
+//============================================================
                                     //MITASK T
 
 
+//     function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//     return [...arr1, ...arr2].sort((a, b) => a - b);
+// }
 
-    function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-    return [...arr1, ...arr2].sort((a, b) => a - b);
-}
-
-    console.log(mergeSortedArrays([2, 5, 8], [4, 6]));
-    console.log(mergeSortedArrays([2, 2, 4], [4, 6]));
+//     console.log(mergeSortedArrays([2, 5, 8], [4, 6]));
+//     console.log(mergeSortedArrays([2, 2, 4], [4, 6]));
  
 //============================================================
                                     // MITASK S
