@@ -5,7 +5,7 @@ export enum MemberType {
 
 export enum MemberStatus {
     ACTIVE = 'ACTIVE',
-    BCLOCK = "BCLOCK",
+    BLOCK = "BLOCK",
     DELETE = "DELETE",
 }
 
