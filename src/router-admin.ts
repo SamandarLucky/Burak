@@ -36,10 +36,12 @@ routerAdmin.post("/product/:id",                        //param
     productController.updateChosenProduct);
 
 /* User */
-routerAdmin.get("/user/all", restaurantConroller.verifyRestaurant,
+routerAdmin.get("/user/all", 
+    restaurantConroller.verifyRestaurant,
     restaurantConroller.getUsers
 );
-routerAdmin.post("/user/edit", restaurantConroller.verifyRestaurant,
+routerAdmin.post("/user/edit", 
+    restaurantConroller.verifyRestaurant,
     restaurantConroller.updateChosenUser
 );
 
