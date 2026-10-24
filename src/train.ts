@@ -1,16 +1,40 @@
 //============================================================
-                                        // MITASK W]
-function chunkArray(array: number[], size: number): number[][] {
-    const result: number[][] = [];
+                                    // MITASK X
 
-    for (let i = 0; i < array.length; i += size) {
-        result.push(array.slice(i, i + size));
+
+function countOccurrences(obj: any, key: string): number {
+  let count = 0;
+
+  for (const k in obj) {
+    if (k === key) {
+      count++;
     }
 
-    return result;
+    if (typeof obj[k] === "object" && obj[k] !== null) {
+      count += countOccurrences(obj[k], key);
+    }
+  }
+
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5], 3));
+console.log(
+  countOccurrences({ model: "A", s: { model: "B" } }, "model")
+);
+
+//============================================================
+                                        // MITASK W
+// function chunkArray(array: number[], size: number): number[][] {
+//     const result: number[][] = [];
+
+//     for (let i = 0; i < array.length; i += size) {
+//         result.push(array.slice(i, i + size));
+//     }
+
+//     return result;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5], 3));
 
 
 //============================================================
