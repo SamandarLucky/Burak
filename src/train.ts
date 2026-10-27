@@ -1,26 +1,34 @@
+
+//============================================================
+                                    //MITASK Y
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+    return arr1.filter((num) => arr2.includes(num)).sort((a, b) => a - b);
+}
+
+console.log(findIntersection([1, 5, 3], [3, 4, 0]));
 //============================================================
                                     // MITASK X
 
+// function countOccurrences(obj: any, key: string): number {
+//   let count = 0;
 
-function countOccurrences(obj: any, key: string): number {
-  let count = 0;
+//   for (const k in obj) {
+//     if (k === key) {
+//       count++;
+//     }
 
-  for (const k in obj) {
-    if (k === key) {
-      count++;
-    }
+//     if (typeof obj[k] === "object" && obj[k] !== null) {
+//       count += countOccurrences(obj[k], key);
+//     }
+//   }
 
-    if (typeof obj[k] === "object" && obj[k] !== null) {
-      count += countOccurrences(obj[k], key);
-    }
-  }
+//   return count;
+// }
 
-  return count;
-}
-
-console.log(
-  countOccurrences({ model: "A", s: { model: "B" } }, "model")
-);
+// console.log(
+//   countOccurrences({ model: "A", s: { model: "B" } }, "model")
+// );
 
 //============================================================
                                         // MITASK W
