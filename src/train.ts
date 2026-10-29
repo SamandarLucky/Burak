@@ -1,12 +1,27 @@
+//============================================================
+                                    //MITASK X
 
+
+function sumEvens(arr: number[]): number {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+console.log(sumEvens([2, 4, 6]));
+console.log(sumEvens([1, 3, 5]));
 //============================================================
                                     //MITASK Y
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-    return arr1.filter((num) => arr2.includes(num)).sort((a, b) => a - b);
-}
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//     return arr1.filter((num) => arr2.includes(num)).sort((a, b) => a - b);
+// }
 
-console.log(findIntersection([1, 5, 3], [3, 4, 0]));
+// console.log(findIntersection([1, 5, 3], [3, 4, 0]));
 //============================================================
                                     // MITASK X
 
