@@ -19,7 +19,7 @@ export enum Message {
     USED_NICK_PHONE = "You are inserting already used nick or phone!",
     WRONG_PASSWORD = "Wrong Password entered, please try again!",
     NOT_AUTHENTICATRD = "You are not authenticated, Please login first!",
-
+    TOKEN_CREATION_FAILED = "Token creation Error!",
 }
 
 class Errors extends Error {
