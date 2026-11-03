@@ -11,7 +11,9 @@ class MemberService {
     constructor() {
         this.memberModel = MemberModel;
     }
+
 /* SPA */
+
  public async signup(input: MemberInput): Promise<Member> {
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -73,6 +75,14 @@ public async login(input: LoginInput): Promise<Member> {
     return result.toObject() as Member;
 }
 
+public async getMemberDetail(member: Member): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel
+        .findOne({_id: memberId, memberStatus: MemberStatus.ACTIVE})
+        .exec();
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result.toObject() as Member;
+}
 
      /* SSR */
 
