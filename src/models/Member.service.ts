@@ -75,6 +75,15 @@ public async login(input: LoginInput): Promise<Member> {
     return result.toObject() as Member;
 }
 
+public async updateMember(member: Member, input: MemberUpdateInput): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel.findOneAndUpdate({_id: memberId}, input, {new: true})
+    .exec();
+    if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    return result.toObject() as Member;
+}
+
+
 public async getMemberDetail(member: Member): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(member._id);
     const result = await this.memberModel
@@ -84,7 +93,7 @@ public async getMemberDetail(member: Member): Promise<Member> {
     return result.toObject() as Member;
 }
 
-     /* SSR */
+     /* SSR Adminka loyihamiz uchun */
 
  public async processSignUp(input: MemberInput): Promise<Member> {
         const  exist = await this.memberModel.findOne({memberType: MemberType.RESTAURANT})
