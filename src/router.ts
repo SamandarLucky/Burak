@@ -4,7 +4,7 @@ import memberController from './controllers/member.controller';
 import uploader from "./libs/utils/uploader";
 
 /* MEMBER */
-
+router.get("/member/restaurant", memberController.getRestaurant); //RestApi
 router.post('/member/login', memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post("/member/logout", memberController.verifyAuth, memberController.logout);
@@ -13,8 +13,8 @@ router.post("/member/update",
     memberController.verifyAuth, 
     uploader("members").single("memberImage"),
     memberController.updateMember
-);
-router.get("/member/top-users", memberController.getTopUsers);
+);  //RestApi
+router.get("/member/top-users", memberController.getTopUsers); //RestApi
 /* PRODUCT */
 
 
