@@ -18,6 +18,6 @@ router.post("/member/update",
 router.get("/member/top-users", memberController.getTopUsers); //RestApi
 /* PRODUCT */
 router.get("/product/all", productController.getProducts);
-
+router.get("/product/:id", memberController.retrieveAuth, productController.getProduct);
 /* ORDER */
 export default router;
