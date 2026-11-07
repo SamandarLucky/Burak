@@ -5,16 +5,21 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { T } from "../libs/types/common";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
+import ViewService from "./View.service";
+import { ViewInput } from "../libs/types/view";
+import { ViewGroup } from "../libs/enums/view.enum";
 class ProductService {
-    [x: string]: any;
-    static createNewProduct(data: ProductInput) {
-        throw new Error("Method not implemented.");
-    }
+    // [x: string]: any;
+    // static createNewProduct(data: ProductInput) {
+    //     throw new Error("Method not implemented.");
+    // }
     private readonly productModel;
-    memberModel: any;
+    public viewService;
+    // memberModel: any;
 
     constructor() {
         this.productModel = ProductModel;
+        this.viewService = new ViewService; //instance
     }
 /* SPA */
 //DEFINE
@@ -56,7 +61,30 @@ public async getProduct(
     ).exec();
     if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-    //TO DO: If authentificated user => first => view creation
+    if(memberId) {
+        // Check View Log Existence
+        const input: ViewInput = {
+            memberId: memberId,
+            viewRefId: productId,
+            viewGroup: ViewGroup.PRODUCT
+        };
+        const existView = await this.viewService.checkViewExistence(input);
+
+        console.log("existView:", !!existView);
+        if(!existView) {
+             // Insert View 
+            console.log("getProduct: ","PLANNING TO INSERT NEW VIEW");
+            await this.viewService.insertMemberView(input);
+        }
+        // Increase Counts View -> it could be member or boardArticle view
+        const result = await this.productModel
+        .findByIdAndUpdate(
+            productId, 
+            { $inc: {productViews: +1}},
+            { new: true } 
+        )
+        .exec();
+    }
 
     return result.toObject() as Product;
 }
