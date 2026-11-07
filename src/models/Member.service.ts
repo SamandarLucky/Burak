@@ -20,7 +20,7 @@ public async getRestaurant(): Promise<Member> {
     .exec();
     if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result.toObject() as Member;
-}
+};
 
 
  public async signup(input: MemberInput): Promise<Member> {
@@ -35,7 +35,7 @@ public async getRestaurant(): Promise<Member> {
                 console.log('Error, model:signup', err);
             throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
             }
-        };
+};
 
     
 public async login(input: LoginInput): Promise<Member> {
@@ -81,7 +81,7 @@ public async login(input: LoginInput): Promise<Member> {
     result.memberPassword = "";
 
     return result.toObject() as Member;
-}
+};
 
 public async updateMember(member: Member, input: MemberUpdateInput): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(member._id);
@@ -89,7 +89,7 @@ public async updateMember(member: Member, input: MemberUpdateInput): Promise<Mem
     .exec();
     if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     return result.toObject() as Member;
-}
+};
 
 public async getTopUsers(): Promise<Member[]> {
     const result = await this.memberModel
@@ -97,9 +97,8 @@ public async getTopUsers(): Promise<Member[]> {
     .sort({memberPoints: -1})
     .limit(4)
     .exec();
-    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
      return result.map(member => member.toJSON() as Member); //return result;
-}
+};
 
 
 public async getMemberDetail(member: Member): Promise<Member> {
@@ -109,11 +108,11 @@ public async getMemberDetail(member: Member): Promise<Member> {
         .exec();
     if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result.toObject() as Member;
-}
+};
 
      /* SSR Adminka loyihamiz uchun */
 
- public async processSignUp(input: MemberInput): Promise<Member> {
+public async processSignUp(input: MemberInput): Promise<Member> {
         const  exist = await this.memberModel.findOne({memberType: MemberType.RESTAURANT})
         .exec();
         if(exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
@@ -129,9 +128,9 @@ public async getMemberDetail(member: Member): Promise<Member> {
             catch(err) {
             throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
             }
-        }
+};
 
-    public async processLogin(input: LoginInput): Promise<Member> {
+public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel.findOne(
             {memberNick: input.memberNick}, 
             {memberNick: 1, memberPassword: 1})
@@ -155,21 +154,21 @@ public async getMemberDetail(member: Member): Promise<Member> {
         }
 
         return result.toObject() as Member;    
-     }
+};
      
-     public async getUsers(): Promise<Member[]> {
+public async getUsers(): Promise<Member[]> {
         const result = await this.memberModel.find({memberType: MemberType.USER}).exec();
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
         return result.map((member) => member.toObject()) as Member[];
-        }
+};
 
-    public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
+public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
     input._id = shapeIntoMongooseObjectId(input._id);
     const result = await this.memberModel.findByIdAndUpdate({_id: input._id}, input, {new: true}).exec();
     if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
     
     return result.toObject() as Member;
-        }
-    }    
+}
+};  
 
 export default MemberService;
