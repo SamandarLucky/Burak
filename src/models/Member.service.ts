@@ -110,6 +110,25 @@ public async getMemberDetail(member: Member): Promise<Member> {
     return result.toObject() as Member;
 };
 
+
+public async addUserPoint(member: Member, point: number): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+
+    const result = await this.memberModel.findOneAndUpdate(
+        {_id: memberId, memberType: MemberType.USER, memberStatus: MemberStatus.ACTIVE},
+        { $inc: { memberPoints: point } },
+        { new: true }
+    ).exec();
+    if (!result) {
+        throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    }
+
+    return result.toObject() as Member;
+}
+
+
+
+
      /* SSR Adminka loyihamiz uchun */
 
 public async processSignUp(input: MemberInput): Promise<Member> {
