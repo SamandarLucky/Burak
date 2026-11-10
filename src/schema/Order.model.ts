@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { orderStatus } from "../libs/enums/order.enum";
+import { Order } from "../libs/types/order";
 
 const orderSchema = new Schema({
     orderTotal: {type: Number , required: true},
@@ -11,4 +12,4 @@ const orderSchema = new Schema({
 ); 
 
 
-export default mongoose.model("Order", orderSchema);
+export default mongoose.model<Order>("Order", orderSchema);
